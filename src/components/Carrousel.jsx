@@ -9,7 +9,7 @@ import img2 from '../assets/color/color3.JPG'
 import img3 from '../assets/microrealismo/microrealismo1.JPG'
 import img4 from '../assets/color/color4.JPG'
 import img5 from '../assets/microrealismo/microrealismo2.jpg'
-import img6 from '../assets/fineline/fineline1.JPG'
+import img6 from '../assets/blackwork/blackwork18.JPG'
 import img7 from '../assets/blackwork/blackwork6.jpg'
 
 const images = [img1, img2, img3, img4, img5, img6, img7];
