@@ -1,19 +1,12 @@
-import Hero from "./components/Hero"
-import Display from "./components/Display"
-import Process from "./components/Process"
-import FAQ from "./components/FAQ"
-import Carrousel from "./components/Carrousel"
-import Footer from "./components/Footer"
+import { TattooContextProvider } from "./store/TattooContext.jsx"
+import AppContent from "./AppContent.jsx"
+
 function App() {
 
   return (
-    <>
-      <Hero />
-      <Carrousel/>
-      <Process/>
-      <FAQ/>
-      <Footer/>
-    </>
+    <TattooContextProvider>
+      <AppContent/>
+    </TattooContextProvider>
   )
 }
 

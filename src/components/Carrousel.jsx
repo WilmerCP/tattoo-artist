@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { useCheckMobile } from '../hooks/useCheckMobile';
 import { getSizeClass, getRotationStyle } from '../lib/helpers.js';
+import { TattooContext } from '../store/TattooContext.jsx';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import img1 from '../assets/anime/anime1.jpg'
@@ -18,6 +19,8 @@ export default function Carrousel() {
     const isMobile = useCheckMobile();
 
     const itemsToShow = isMobile ? 3 : 5;
+
+    const { handleImageClick } = useContext(TattooContext);
 
     // Touch handling
     const touchStartX = useRef(0);
@@ -112,6 +115,7 @@ export default function Carrousel() {
                             key={`${currentIndex}-${index}`}
                             className={`${getSizeClass(index, itemsToShow)} flex-shrink-0 transition-all duration-500`}
                             style={getRotationStyle(index, itemsToShow)}
+                            onClick={()=>handleImageClick(item.src)}
                         >
                             <img
                                 src={item.src}
