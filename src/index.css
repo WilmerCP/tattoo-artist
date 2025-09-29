@@ -34,3 +34,10 @@
   background-position: var(--zoomX) var(--zoomY);
   z-index: 10;
 }
+
+.active{
+
+  background-color: oklch(84.163% 0.17573 146.494);
+  color: black;
+
+}
