@@ -1,5 +1,6 @@
 import hero_image from '../assets/hero_erian.JPG'
 import { FaLocationDot } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
 
@@ -12,6 +13,9 @@ export default function Hero() {
             <p className='text-3xl flex items-center justify-center mt-4 gap-2 font-simple'>
                 <FaLocationDot className='text-4xl ' /> Caracas/San Antonio, Venezuela
             </p>
+            <button className="mt-8 px-6 py-3 bg-white text-black font-simple font-bold hover:bg-gray-200 transition">
+                <Link to="/tattoo-artist/galeria" >Galería de tatuajes</Link>
+            </button>
         </div>
 
         <div className="hidden md:flex w-full md:w-1/2 ">
@@ -30,6 +34,9 @@ export default function Hero() {
             <p className='text-base flex flex-col items-center justify-center mt-20 gap-3 font-simple'>
                 <FaLocationDot className='text-2xl' /> Caracas / San Antonio, Venezuela
             </p>
+            <button className="mt-8 px-6 py-3 bg-white text-black font-simple font-bold hover:bg-gray-200 transition">
+                <Link to="/tattoo-artist/galeria" >Galería de tatuajes</Link>
+            </button>
         </div>
     </section>
     )

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function Footer() {
 
@@ -23,10 +24,13 @@ export default function Footer() {
                 <p className="text-xs md:text-sm uppercase mb-2">&copy; {new Date().getFullYear()} Erian Canelón. Todos los derechos reservados.</p>
                 <p className="text-xs md:text-sm uppercase">Sitio desarrollado por Wilmer Cuevas</p>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:flex gap-2">
                 <a className="underline md:base text-white font-semibold uppercase hover:line-through" href="https://www.instagram.com/erian_canelon/" target="_blank" rel="noopener noreferrer">
                     Instagram
                 </a>
+                <Link className="underline md:base text-white font-semibold uppercase hover:line-through" to="/tattoo-artist/galeria">
+                    Galería
+                </Link>
             </div>
         </footer>
     );
