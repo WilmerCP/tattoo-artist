@@ -129,7 +129,8 @@ export default function Gallery() {
   const buttonClasses= 'bg-white md:text-xl text-black font-simple font-bold hover:bg-gray-200 transition md:p-3 p-2 text-base ';
 
   return (
-    <div className='bg-black text-white min-h-screen justify-center px-10'>
+    <div className='bg-black text-white min-h-screen justify-center px-10'
+      style={{ touchAction: 'pan-y' }}>
       <Link to={'/tattoo-artist/'} className='font-fancy md:text-4xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
       <h1 className='font-fancy md:text-6xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 

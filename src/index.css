@@ -35,7 +35,40 @@
   z-index: 10;
 }
 
-.active{
+@media (max-width: 768px) {
+
+  /* Hide ::after on mobile */
+  #image-zoom::after {
+    display: none !important;
+  }
+
+  /* Show ::before on mobile */
+  #image-zoom::before {
+    display: var(--zoomDisplay);
+    position: absolute;
+    content: '';
+    background-image: var(--imgUrl);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 11;
+    width: var(--zoomWidth);
+    height: var(--zoomHeight);
+    min-width: 100%;
+    min-height: 100%;
+    top: var(--zoomY);
+    left: var(--zoomX);
+    max-width: none;
+    max-height: none;
+    transform: translate(-50%, -50%);
+  }
+
+  #image-zoom,
+  #dialog {
+    overflow: visible !important;
+  }
+}
+
+.active {
 
   background-color: oklch(84.163% 0.17573 146.494);
   color: black;
