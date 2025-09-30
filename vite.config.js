@@ -7,6 +7,6 @@ export default defineConfig({
   base: '/tattoo-artist/',
   server: {
     host: true,
-    port: 3000
+    port: 3004
   }
 })

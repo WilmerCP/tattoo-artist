@@ -15,6 +15,7 @@ export default function ZoomImage({ image, ...props }) {
     const [lastTouchCenter, setLastTouchCenter] = useState({ x: 0, y: 0 });
     const [imageAspectRatio, setImageAspectRatio] = useState(1);
     const [initialPinchCenter, setInitialPinchCenter] = useState({ x: 0, y: 0 });
+    const [isMoving, setIsMoving] = useState(false);
     const isMobile = useCheckMobile();
 
 
@@ -23,7 +24,7 @@ export default function ZoomImage({ image, ...props }) {
 
     function handleMouseMove(e) {
 
-        if(isMobile) return;
+        if (isMobile) return;
 
         const rect = e.target.getBoundingClientRect();
         const x = e.clientX - rect.left; // X position within element
@@ -41,9 +42,15 @@ export default function ZoomImage({ image, ...props }) {
     }
 
     const getTouchDistance = (touches) => {
-        const dx = touches[0].clientX - touches[1].clientX;
-        const dy = touches[0].clientY - touches[1].clientY;
-        return Math.sqrt(dx * dx + dy * dy);
+        if (touches.length == 2) {
+            const dx = touches[0].clientX - touches[1].clientX;
+            const dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        } else if (touches.length == 1) {
+            const dx = touches[0].clientX;
+            const dy = touches[0].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
     };
 
     const getTouchCenter = (touches) => {
@@ -61,7 +68,7 @@ export default function ZoomImage({ image, ...props }) {
     };
 
     function handleTouchStart(e) {
-        if (e.touches.length === 2) {
+        if (e.touches.length === 1 || e.touches.length === 2) {
             e.preventDefault();
             const distance = getTouchDistance(e.touches);
             const center = getTouchCenter(e.touches);
@@ -75,6 +82,9 @@ export default function ZoomImage({ image, ...props }) {
                 y: 50, // Center vertically
                 scale: 1
             });
+            setZoomDisplay('block');
+            setIsMoving(true);
+            
         }
 
     }
@@ -114,7 +124,36 @@ export default function ZoomImage({ image, ...props }) {
                 scale: newScale
             });
 
-            setZoomDisplay(newScale > 1 ? 'block' : 'none');
+            setZoomDisplay(isMoving ? 'block' : 'none');
+            setLastTouchDistance(currentDistance);
+            setLastTouchCenter(currentCenter);
+
+        } else if (e.touches.length === 1) {
+
+            // Two finger pinch zoom
+            const currentDistance = getTouchDistance(e.touches);
+            const currentCenter = getTouchCenter(e.touches);
+
+            // Calculate offset from initial pinch center
+            const offsetX = currentCenter.x - initialPinchCenter.x; // Pixel offset
+            const offsetY = currentCenter.y - initialPinchCenter.y; // Pixel offset
+
+            // Convert offset to percentage of container size
+            const rect = containerRef.current.getBoundingClientRect();
+            const offsetXPercent = (offsetX / rect.width) * 100;
+            const offsetYPercent = (offsetY / rect.height) * 100;
+
+            // Apply offset to centered position (50% + offset)
+            const newX = Math.min(Math.max(50 + offsetXPercent, 0), 100);
+            const newY = Math.min(Math.max(50 + offsetYPercent, 0), 100);
+
+
+            setZoom({
+                x: newX,
+                y: newY,
+                scale: 1
+            });
+            setZoomDisplay('block');
             setLastTouchDistance(currentDistance);
             setLastTouchCenter(currentCenter);
 
@@ -132,15 +171,18 @@ export default function ZoomImage({ image, ...props }) {
 
     const handleTouchEnd = (e) => {
 
-        setZoomDisplay('none');
-        setZoom({
-            x: 0,
-            y: 0,
-            scale: 1
-        });
-        setLastTouchCenter({ x: 0, y: 0 });
-        setLastTouchDistance(0);
-        setInitialPinchCenter({ x: 0, y: 0 });
+        if (e.touches.length === 0) {
+            setZoomDisplay('none');
+            setIsMoving(false);
+            setZoom({
+                x: 0,
+                y: 0,
+                scale: 1
+            });
+            setLastTouchCenter({ x: 0, y: 0 });
+            setLastTouchDistance(0);
+            setInitialPinchCenter({ x: 0, y: 0 });
+        }
 
     };
 
@@ -176,7 +218,7 @@ export default function ZoomImage({ image, ...props }) {
     const zoomHeight = `${baseHeight * zoom.scale}px`;
     const backgroundSize = `${100 * zoom.scale}%`; // Keep for ::after
 
-    const opacityClass = (zoom.scale > 1 && isMobile) ? 'opacity-0' : 'opacity-100'
+    const opacityClass = (isMoving && isMobile) ? 'opacity-0' : 'opacity-100'
 
     return (
         <div id="image-zoom" ref={containerRef}
@@ -191,8 +233,10 @@ export default function ZoomImage({ image, ...props }) {
                 '--zoomHeight': zoomHeight,         // For mobile ::before
                 touchAction: 'none'
             }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => setZoomDisplay('none')}
+            {...(!isMobile && {
+                onMouseMove: handleMouseMove,
+                onMouseLeave: () => setZoomDisplay('none')
+            })}
         >
 
             <img src={image} {...props} alt="Tattoo image"
