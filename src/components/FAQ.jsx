@@ -5,7 +5,7 @@ export default function FAQ() {
 
     return (
 
-        <section className="bg-black  text-white flex flex-col md:flex-row gap-10 md:px-20 py-32 px-8">
+        <section className="bg-black  text-white flex flex-col md:flex-row gap-10 md:px-20 py-20 px-8">
 
             <div className="w-full md:w-1/2 md:px-8">
                 <h2 className="md:text-6xl text-4xl md:text-start text-center font-fancy mb-10">Preguntas Frecuentes</h2>

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { animeImages, blackworkImages, microrealismoImages, colorImages } from '../lib/imageImport.js';
 import { TattooContext } from '../store/TattooContext.jsx';
 import { Link } from 'react-router-dom';
+import Contact from '../components/Contact.jsx';
 
 const imagePromises = [animeImages, blackworkImages, microrealismoImages, colorImages];
 const CACHE_KEY = 'galleryImages';
@@ -53,9 +54,9 @@ export default function Gallery() {
 
   const cachedImages = getStoredImages();
 
-  function selectCategory(category){
+  function selectCategory(category) {
 
-    if(category === 'todo'){
+    if (category === 'todo') {
       setSelectedCategories({
         anime: false,
         blackwork: false,
@@ -63,7 +64,7 @@ export default function Gallery() {
         color: false,
         todo: true
       });
-    }else{
+    } else {
 
       setSelectedCategories({
         anime: category === 'anime',
@@ -126,23 +127,26 @@ export default function Gallery() {
 
   }
 
-  const buttonClasses= 'bg-white md:text-xl text-black font-simple font-bold hover:bg-gray-200 transition md:p-3 p-2 text-base ';
+  const buttonClasses = 'bg-white md:text-xl text-black font-simple font-bold hover:bg-gray-200 transition md:p-3 p-2 text-base ';
 
   return (
-    <div className='bg-black text-white min-h-screen justify-center px-10'
-      style={{ touchAction: 'pan-y' }}>
-      <Link to={'/tattoo-artist/'} className='font-fancy md:text-4xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
-      <h1 className='font-fancy md:text-6xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
+    <>
+      <div className='bg-black text-white min-h-screen justify-center px-10'
+        style={{ touchAction: 'pan-y' }}>
+        <Link to={'/tattoo-artist/'} className='font-fancy md:text-4xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
+        <h1 className='font-fancy md:text-6xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 
-      <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
-        <button onClick={() => { selectCategory('color') }} className={`${buttonClasses} ${selectedCategories.color ? ' active' : ''}`}>Color</button>
-        <button onClick={() => { selectCategory('anime') }} className={`${buttonClasses} ${selectedCategories.anime ? ' active' : ''}`}>Anime</button>
-        <button onClick={() => { selectCategory('blackwork') }} className={`${buttonClasses} ${selectedCategories.blackwork ? ' active' : ''}`}>Blackwork</button>
-        <button onClick={() => { selectCategory('microrealismo') }} className={`${buttonClasses} ${selectedCategories.microrealismo ? ' active' : ''}`}>Microrealismo</button>
-        <button onClick={() => { selectCategory('todo') }} className={`${buttonClasses} ${selectedCategories.todo ? ' active' : ''}`}>Todo</button>
+        <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
+          <button onClick={() => { selectCategory('color') }} className={`${buttonClasses} ${selectedCategories.color ? ' active' : ''}`}>Color</button>
+          <button onClick={() => { selectCategory('anime') }} className={`${buttonClasses} ${selectedCategories.anime ? ' active' : ''}`}>Anime</button>
+          <button onClick={() => { selectCategory('blackwork') }} className={`${buttonClasses} ${selectedCategories.blackwork ? ' active' : ''}`}>Blackwork</button>
+          <button onClick={() => { selectCategory('microrealismo') }} className={`${buttonClasses} ${selectedCategories.microrealismo ? ' active' : ''}`}>Microrealismo</button>
+          <button onClick={() => { selectCategory('todo') }} className={`${buttonClasses} ${selectedCategories.todo ? ' active' : ''}`}>Todo</button>
+        </div>
+
+        {content}
       </div>
-
-      {content}
-    </div>
+      <Contact />
+    </>
   )
 }
