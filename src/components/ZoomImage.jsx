@@ -23,6 +23,8 @@ export default function ZoomImage({ image, ...props }) {
 
     function handleMouseMove(e) {
 
+        if(isMobile) return;
+
         const rect = e.target.getBoundingClientRect();
         const x = e.clientX - rect.left; // X position within element
         const y = e.clientY - rect.top;  // Y position within element
@@ -45,10 +47,17 @@ export default function ZoomImage({ image, ...props }) {
     };
 
     const getTouchCenter = (touches) => {
-        return {
-            x: (touches[0].clientX + touches[1].clientX) / 2,
-            y: (touches[0].clientY + touches[1].clientY) / 2
-        };
+        if (touches.length == 2) {
+            return {
+                x: (touches[0].clientX + touches[1].clientX) / 2,
+                y: (touches[0].clientY + touches[1].clientY) / 2
+            };
+        } else if (touches.length == 1) {
+            return {
+                x: touches[0].clientX,
+                y: touches[0].clientY
+            };
+        }
     };
 
     function handleTouchStart(e) {
@@ -122,6 +131,7 @@ export default function ZoomImage({ image, ...props }) {
     };
 
     const handleTouchEnd = (e) => {
+
         setZoomDisplay('none');
         setZoom({
             x: 0,
@@ -131,6 +141,7 @@ export default function ZoomImage({ image, ...props }) {
         setLastTouchCenter({ x: 0, y: 0 });
         setLastTouchDistance(0);
         setInitialPinchCenter({ x: 0, y: 0 });
+
     };
 
     useEffect(() => {
@@ -140,6 +151,23 @@ export default function ZoomImage({ image, ...props }) {
         };
         img.src = image;
     }, [image]);
+
+    useEffect(() => {
+        const element = containerRef.current;
+        if (!element) return;
+
+        if (!isMobile) return;
+
+        element.addEventListener('touchstart', handleTouchStart, { passive: false });
+        element.addEventListener('touchmove', handleTouchMove, { passive: false });
+        element.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+        return () => {
+            element.removeEventListener('touchstart', handleTouchStart);
+            element.removeEventListener('touchmove', handleTouchMove);
+            element.removeEventListener('touchend', handleTouchEnd);
+        };
+    }, [handleTouchMove]);
 
     // Calculate dimensions for mobile ::before element
     const baseHeight = 200;
@@ -165,9 +193,7 @@ export default function ZoomImage({ image, ...props }) {
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => setZoomDisplay('none')}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            onTouchMove={handleTouchMove}>
+        >
 
             <img src={image} {...props} alt="Tattoo image"
                 className={` max-w-[80vw] max-h-[80vh] object-contain ${opacityClass}`} />
