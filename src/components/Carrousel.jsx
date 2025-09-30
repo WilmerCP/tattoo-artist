@@ -80,7 +80,7 @@ export default function Carrousel() {
 
     return (
         <section className='bg-black text-white md:py-32 py-24 px-4 flex flex-col gap-10 overflow-hidden'>
-            <h2 className='text-center text-5xl md:text-8xl font-fancy'>Mi trabajo</h2>
+            <h2 className='text-center text-5xl md:text-7xl font-fancy'>Mi trabajo</h2>
             <p className='text-center md:text-2xl text-lg font-simple'>Cada tatuaje cuenta una historia única grabada en la piel</p>
 
             {/* Carousel Container */}

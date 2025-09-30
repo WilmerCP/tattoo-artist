@@ -4,7 +4,7 @@ import pasos from "../lib/pasos.js"
 export default function Process() {
 
     return <section className="bg-black text-white min-h-screen flex flex-col items-center justify-center px-4 py-16">
-        <h2 className="md:text-6xl text-4xl font-fancy mb-16 text-center">El Proceso</h2>
+        <h2 className="md:text-4xl text-4xl font-fancy mb-16 text-center">El Proceso</h2>
 
         <div className="max-w-4xl w-full relative">
             {/* Mobile: Single Continuous Vertical Line */}
@@ -24,7 +24,7 @@ export default function Process() {
                     {/* Desktop Only: Diagonal Lines */}
                     {index < pasos.length - 1 && (
                         <svg
-                            className="hidden md:block absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-4"
+                            className="hidden md:block absolute top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-4"
                             width="500"
                             height="100"
                             viewBox="0 0 500 100"

@@ -133,8 +133,8 @@ export default function Gallery() {
     <>
       <div className='bg-black text-white min-h-screen justify-center px-10'
         style={{ touchAction: 'pan-y' }}>
-        <Link to={'/tattoo-artist/'} className='font-fancy md:text-4xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
-        <h1 className='font-fancy md:text-6xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
+        <Link to={'/tattoo-artist/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
+        <h1 className='font-fancy md:text-7xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 
         <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
           <button onClick={() => { selectCategory('color') }} className={`${buttonClasses} ${selectedCategories.color ? ' active' : ''}`}>Color</button>

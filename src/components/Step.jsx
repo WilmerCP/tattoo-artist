@@ -8,7 +8,7 @@ export default function Step({ number, title, description, isRight = false }) {
             
             {/* Step Content */}
             <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-fancy mb-2">{title}</h3>
+                <h3 className="text-xl md:text-4xl font-fancy mb-2">{title}</h3>
                 <p className="text-gray-300 font-simple text-sm md:text-base">{description}</p>
             </div>
         </div>

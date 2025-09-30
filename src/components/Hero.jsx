@@ -8,7 +8,7 @@ export default function Hero() {
 
         {/*Desktop Content*/}
         <div className="hidden md:block w-full md:w-1/2 p-8 text-center">
-            <h1 className="text-9xl font-fancy">Erian Canelón</h1>
+            <h1 className="text-8xl font-fancy">Erian Canelón</h1>
             <p className="text-2xl font-simple">Tattoo Artist</p>
             <p className='text-3xl flex items-center justify-center mt-4 gap-2 font-simple'>
                 <FaLocationDot className='text-4xl ' /> Caracas/San Antonio, Venezuela
