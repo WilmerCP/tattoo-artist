@@ -3,6 +3,7 @@ import { animeImages, blackworkImages, microrealismoImages, colorImages } from '
 import { TattooContext } from '../store/TattooContext.jsx';
 import { Link } from 'react-router-dom';
 import Contact from '../components/Contact.jsx';
+import background from '../assets/tatuando.jpeg';
 
 const imagePromises = [animeImages, blackworkImages, microrealismoImages, colorImages];
 const CACHE_KEY = 'galleryImages';
@@ -119,7 +120,7 @@ export default function Gallery() {
 
     });
 
-    content = <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-10 gap-6 md:py-10 py-8 md:w-[80%] mx-auto'>
+    content = <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-10 gap-6 md:py-10 py-8 md:w-[75%] w-[85%] mx-auto -mt-36 md:-mt-30 relative z-10'>
 
       {gallery}
 
@@ -131,20 +132,30 @@ export default function Gallery() {
 
   return (
     <>
-      <div className='bg-black text-white min-h-screen justify-center px-10'
+      <div className='bg-black text-white min-h-screen justify-center'
         style={{ touchAction: 'pan-y' }}>
-        <Link to={'/tattoo-artist/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
-        <h1 className='font-fancy md:text-7xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
+          
+        <div className='pb-40 px-10' style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${background})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          boxShadow: 'inset 0 -90px 70px -5px rgba(0,0,0,1)'
+        }}>
+          <Link to={'/tattoo-artist/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
+          
+          <h1 className='font-fancy md:text-7xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 
-        <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
-          <button onClick={() => { selectCategory('color') }} className={`${buttonClasses} ${selectedCategories.color ? ' active' : ''}`}>Color</button>
-          <button onClick={() => { selectCategory('anime') }} className={`${buttonClasses} ${selectedCategories.anime ? ' active' : ''}`}>Anime</button>
-          <button onClick={() => { selectCategory('blackwork') }} className={`${buttonClasses} ${selectedCategories.blackwork ? ' active' : ''}`}>Blackwork</button>
-          <button onClick={() => { selectCategory('microrealismo') }} className={`${buttonClasses} ${selectedCategories.microrealismo ? ' active' : ''}`}>Microrealismo</button>
-          <button onClick={() => { selectCategory('todo') }} className={`${buttonClasses} ${selectedCategories.todo ? ' active' : ''}`}>Todo</button>
+          <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
+            <button onClick={() => { selectCategory('color') }} className={`${buttonClasses} ${selectedCategories.color ? ' active' : ''}`}>Color</button>
+            <button onClick={() => { selectCategory('anime') }} className={`${buttonClasses} ${selectedCategories.anime ? ' active' : ''}`}>Anime</button>
+            <button onClick={() => { selectCategory('blackwork') }} className={`${buttonClasses} ${selectedCategories.blackwork ? ' active' : ''}`}>Blackwork</button>
+            <button onClick={() => { selectCategory('microrealismo') }} className={`${buttonClasses} ${selectedCategories.microrealismo ? ' active' : ''}`}>Microrealismo</button>
+            <button onClick={() => { selectCategory('todo') }} className={`${buttonClasses} ${selectedCategories.todo ? ' active' : ''}`}>Todo</button>
+          </div>
         </div>
 
         {content}
+
       </div>
       <Contact />
     </>
