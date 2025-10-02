@@ -3,7 +3,7 @@ import goldBackground from '../assets/goldBackground.jpg'
 export default function Prize({ image, description, title, ...props }) {
 
 
-    return <div className='relative p-6 rounded-sm shadow-2xl border-4 border-yellow-600 max-w-sm mx-auto transform md:hover:scale-105 transition-all duration-300'
+    return <div className='relative p-6 rounded-sm shadow-2xl border-4 border-yellow-600 max-w-sm mx-auto transform md:hover:scale-105 transition-all duration-300 bg-gradient-to-br from-yellow-500 to-yellow-600'
         style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${goldBackground})`,
             backgroundSize: 'cover',
