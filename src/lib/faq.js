@@ -2,7 +2,7 @@ const preguntas = [
 
     {
         pregunta: "¿Cómo puedo reservar una cita?",
-        respuesta: "Para reservar una cita, puedes contactarme a través de mi correo electrónico o redes sociales. Te responderé con los detalles necesarios para agendar tu sesión."
+        respuesta: "Para reservar una cita, puedes contactarme directamente a través de whatsapp o instagram. Te responderé con los detalles necesarios para agendar tu sesión."
     },
     {
         pregunta: "¿Cuánto tiempo dura una sesión de tatuaje?",
@@ -15,7 +15,7 @@ const preguntas = [
         respuesta: "Te proporcionaré instrucciones detalladas para el cuidado posterior, que incluyen mantener el tatuaje limpio, aplicar ungüento y evitar la exposición al sol y al agua durante el proceso de curación."
     },
     {  pregunta: "¿Puedo traer mi propio diseño?",
-        respuesta: "Sí, puedes traer tu propio diseño o ideas. Trabajaremos juntos para adaptarlo a un formato adecuado para el tatuaje y asegurarnos de que se ajuste a tu estilo y preferencias."
+        respuesta: "Sí, puedes traer tu propio diseño o ideas. Trabajaremos juntos para adaptarlo a un formato adecuado para el tatuaje y asegurarnos de que se ajuste a tu estilo único."
     }
 
 ];

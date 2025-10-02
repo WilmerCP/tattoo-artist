@@ -5,7 +5,7 @@ import { TattooContext } from '../store/TattooContext.jsx';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import img1 from '../assets/anime/anime1.jpg'
-import img2 from '../assets/color/color3.JPG'
+import img2 from '../assets/color/color2.JPG'
 import img3 from '../assets/microrealismo/microrealismo1.JPG'
 import img4 from '../assets/color/color4.JPG'
 import img5 from '../assets/microrealismo/microrealismo2.jpg'

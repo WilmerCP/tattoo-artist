@@ -5,6 +5,7 @@ import Carrousel from "../components/Carrousel.jsx"
 import AboutMe from "../components/AboutMe.jsx"
 import { useEffect } from "react"
 import Contact from "../components/Contact.jsx"
+import Reconocimientos from "../components/Reconocimientos.jsx"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Hero />
             <Carrousel />
             <AboutMe />
+            <Reconocimientos/>
             <Process />
             <FAQ />
             <Contact />
