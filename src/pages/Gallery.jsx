@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { animeImages, blackworkImages, microrealismoImages, colorImages } from '../lib/imageImport.js';
 import { TattooContext } from '../store/TattooContext.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Contact from '../components/Contact.jsx';
 import background from '../assets/tatuando.jpeg';
 
@@ -50,8 +50,13 @@ export default function Gallery() {
     blackwork: false,
     microrealismo: false,
     color: false,
-    todo: true
+    todo: false
   });
+
+  const [searchParams] = useSearchParams();
+  const categoria = searchParams.get('categoria') !== null ? searchParams.get('categoria').toLowerCase() : 'todo';
+
+  console.log('Categoria from URL:', categoria);
 
   const cachedImages = getStoredImages();
 
@@ -105,6 +110,14 @@ export default function Gallery() {
 
     }
 
+    setSelectedCategories({
+      anime: categoria === 'anime',
+      blackwork: categoria === 'blackwork',
+      microrealismo: categoria === 'realismo',
+      color: categoria === 'color',
+      todo: categoria === 'todo'
+    });
+
 
   }, []);
 
@@ -134,7 +147,7 @@ export default function Gallery() {
     <>
       <div className='bg-black text-white min-h-screen justify-center'
         style={{ touchAction: 'pan-y' }}>
-          
+
         <div className='pb-40 px-10' style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${background})`,
           backgroundSize: 'cover',
@@ -142,7 +155,7 @@ export default function Gallery() {
           boxShadow: 'inset 0 -90px 70px -5px rgba(0,0,0,1)'
         }}>
           <Link to={'/tattoo-artist/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
-          
+
           <h1 className='font-fancy md:text-7xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 
           <div className='flex flex-row gap-2 mx-auto justify-center flex-wrap md:mb-10 mb-6'>
