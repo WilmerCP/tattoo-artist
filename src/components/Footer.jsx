@@ -5,8 +5,10 @@ export default function Footer() {
     const location = useLocation();
     const currentPath = location.pathname;
 
-    const isHomePage = currentPath === '/tattoo-artist/' || currentPath === '/tattoo-artist';
-    const isGalleryPage = currentPath === '/tattoo-artist/galeria';
+    const isHomePage = currentPath === '/' || currentPath === '';
+    const isGalleryPage = currentPath === '/galeria';
+
+    console.log("Current Path:", currentPath);
 
 
     const scrollToTop = () => {
@@ -32,11 +34,11 @@ export default function Footer() {
                     Instagram
                 </a>
                 {!isGalleryPage &&
-                    <Link className="underline md:base text-xs md:text-base text-white font-semibold uppercase hover:line-through" to="/tattoo-artist/galeria">
+                    <Link className="underline md:base text-xs md:text-base text-white font-semibold uppercase hover:line-through" to="/galeria">
                         Galería
                     </Link>}
                 {!isHomePage &&
-                    <Link className="underline md:base text-xs md:text-base text-white font-semibold uppercase hover:line-through" to="/tattoo-artist/">
+                    <Link className="underline md:base text-xs md:text-base text-white font-semibold uppercase hover:line-through" to="/">
                         Inicio
                     </Link>}
                 <button onClick={scrollToTop} className="md:hidden text-xs md:text-base hover:line-through underline text-white font-semibold uppercase">

@@ -8,7 +8,7 @@ export default function CategoryItem({ name, img}) {
 
     const handleClick = (category) => {
         // Navigate to the category page with the category name in lowercase
-        navigate(`/tattoo-artist/galeria/?categoria=${name.toLowerCase()}`);
+        navigate(`/galeria/?categoria=${name.toLowerCase()}`);
     };
 
     return <div className='border-1 border-zinc-200 md:p-8 p-4 md:min-h-130 md:h-fit min-h-40 flex items-end justify-baseline relative hover:scale-105 transition-all duration-300'

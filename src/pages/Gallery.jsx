@@ -154,7 +154,7 @@ export default function Gallery() {
           backgroundPosition: 'center',
           boxShadow: 'inset 0 -90px 70px -5px rgba(0,0,0,1)'
         }}>
-          <Link to={'/tattoo-artist/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
+          <Link to={'/'} className='font-fancy md:text-5xl text-3xl py-6 md:py-10 text-center block hover:scale-105 transition-transform'>Erian Canelón</Link>
 
           <h1 className='font-fancy md:text-7xl text-5xl md:py-10 py-6 text-center '>Galería</h1>
 
