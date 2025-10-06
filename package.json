@@ -9,8 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -c CNAME --repo https://github.com/WilmerCP/tattoo-artist.git"
+    "predeploy": "npm run build && cp CNAME dist/CNAME",
+    "deploy": "gh-pages -d dist --repo https://github.com/WilmerCP/tattoo-artist.git"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
