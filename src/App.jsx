@@ -6,19 +6,19 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 
 const router = createBrowserRouter([
   {
-    path: "/tattoo-artist",
+    path: "/",
     element: <RootLayout />,
     children: [
       {
-        path: "/tattoo-artist",
+        index: true,
         element: <HomePage />,
       },
       {
-        path: "/tattoo-artist/galeria",
+        path: "galeria",
         element: <Gallery />,
       }
     ],
-    errorElement: <Navigate to="/tattoo-artist" replace />,
+    errorElement: <Navigate to="/" replace />,
   }
 ]);
 
