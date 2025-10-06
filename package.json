@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://WilmerCP.github.io/tattoo-artist",
+  "homepage": "https://eriantattoo.com",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
