@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website for tattoo artist Erian Canelón, showcasing his work across multiple tattoo styles including color, blackwork, anime, and microrealismo.
 
-![Hero](assets/readme/hero.png)
+![Hero](https://github.com/WilmerCP/tattoo-artist/blob/master/src/assets/readme/hero.png)
 
 
 ## 🎨 Features
@@ -17,7 +17,7 @@ A modern, responsive portfolio website for tattoo artist Erian Canelón, showcas
 - **Process Walkthrough**: Step-by-step explanation of the tattoo process
 - **SEO Optimized**: Meta tags, Open Graph, and sitemap included
 
-![Gallery](assets/readme/galery.png)
+![Gallery](https://github.com/WilmerCP/tattoo-artist/blob/master/src/assets/readme/gallery.png)
 
 ## 🚀 Tech Stack
 
@@ -45,7 +45,7 @@ A modern, responsive portfolio website for tattoo artist Erian Canelón, showcas
 - **Lazy Loading**: Efficient image loading strategies
 - **Responsive Images**: Optimized for different device sizes
 
-![Image Zoom](assets/readme/imageZoom.gif)
+![Image Zoom](https://github.com/WilmerCP/tattoo-artist/blob/master/src/assets/readme/imageZoom.gif)
 
 ## 🎯 Pages
 
@@ -56,7 +56,7 @@ A modern, responsive portfolio website for tattoo artist Erian Canelón, showcas
 
 Visit the live portfolio at: [eriantattoo.com](https://eriantattoo.com)
 
-![Categories](assets/readme/categories.png)
+![Categories](https://github.com/WilmerCP/tattoo-artist/blob/master/src/assets/readme/categories.png)
 
 ## 📞 Contact Integration
 
@@ -87,4 +87,4 @@ For the talented tattoo artist **Erian Canelón** based in Caracas/San Antonio, 
 
 This project is a custom portfolio website. All tattoo artwork and images belong to Erian Canelón.
 
-![FAQ](assets/readme/faq.png)
+![FAQ](https://github.com/WilmerCP/tattoo-artist/blob/master/src/assets/readme/faq.png)
