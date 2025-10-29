@@ -1,16 +1,90 @@
-# React + Vite
+# Tattoo Artist Portfolio - Erian Canelón
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website for tattoo artist Erian Canelón, showcasing his work across multiple tattoo styles including color, blackwork, anime, and microrealismo.
 
-Currently, two official plugins are available:
+![Hero](assets/readme/hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## 🎨 Features
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Interactive Gallery**: Browse tattoos by category with advanced zoom functionality
+- **Responsive Carousel**: Showcase featured work with touch-friendly navigation
+- **Image Zoom**: Desktop hover zoom and mobile pinch-to-zoom capabilities
+- **Category Filtering**: Filter gallery by tattoo styles (Color, Blackwork, Anime, Microrealismo)
+- **Award Showcase**: Interactive display of artist's achievements and recognitions
+- **Contact Integration**: Direct WhatsApp contact functionality
+- **FAQ Section**: Collapsible frequently asked questions
+- **Process Walkthrough**: Step-by-step explanation of the tattoo process
+- **SEO Optimized**: Meta tags, Open Graph, and sitemap included
 
-## Expanding the ESLint configuration
+![Gallery](assets/readme/galery.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+
+- **Frontend**: React 19.1.1 with Vite
+- **Styling**: Tailwind CSS 4.1.13
+- **Routing**: React Router DOM 7.9.3
+- **Icons**: React Icons 5.5.0
+- **Deployment**: GitHub Pages
+
+
+## 📱 Key Components
+
+### Gallery System
+- **Dynamic Image Loading**: Uses Vite's `import.meta.glob` for efficient image importing
+- **Category Filtering**: URL-based filtering with session storage caching
+- **Responsive Grid**: Adaptive layout for different screen sizes
+
+### Interactive Features
+- **Touch Gestures**: Mobile-optimized carousel with swipe navigation
+- **Zoom Functionality**: Desktop hover zoom and mobile pinch-to-zoom
+- **Modal System**: Context-based image popup management
+
+### Performance Optimizations
+- **Image Caching**: Session storage for loaded images
+- **Lazy Loading**: Efficient image loading strategies
+- **Responsive Images**: Optimized for different device sizes
+
+![Image Zoom](assets/readme/imageZoom.gif)
+
+## 🎯 Pages
+
+- **Homepage** (`/`): Hero section, featured work carousel, about section, categories, awards, process, FAQ, and contact
+- **Gallery** (`/galeria`): Complete tattoo gallery with category filtering and zoom functionality
+
+## 🌐 Live Site
+
+Visit the live portfolio at: [eriantattoo.com](https://eriantattoo.com)
+
+![Categories](assets/readme/categories.png)
+
+## 📞 Contact Integration
+
+The site includes direct WhatsApp integration for client inquiries, automatically opening WhatsApp with a pre-filled message.
+
+## 📱 Mobile Optimization
+
+- Touch-friendly carousel navigation
+- Mobile-specific zoom controls
+- Responsive grid layouts
+- Optimized touch gestures
+
+## 🔍 SEO Features
+
+- Comprehensive meta tags
+- Open Graph integration
+- Twitter Card support
+- XML sitemap
+- Robots.txt configuration
+
+## 👨‍💻 Developer
+
+**Developed by Wilmer Cuevas**
+
+For the talented tattoo artist **Erian Canelón** based in Caracas/San Antonio, Venezuela.
+
+## 📄 License
+
+This project is a custom portfolio website. All tattoo artwork and images belong to Erian Canelón.
+
+![FAQ](assets/readme/faq.png)
